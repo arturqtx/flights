@@ -1,0 +1,5 @@
+app:
+  crazy-air:
+    base-url: "https://api.crazy.air"
+  tough-jet:
+    base-url: "https://tough-jet.com"
