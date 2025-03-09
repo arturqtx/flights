@@ -16,4 +16,4 @@
    Backend workers would receive the request event and begin fetching flight data from external APIs. As the data is fetched, it would be fed into the user's request.
 
    If an external API call fails, the user would not be impacted. The worker can retry the request, ensuring the system remains resilient. This approach would work
-   even better if we maintained a cache / off-line flights data (perhaps quite outdated) that would then be re-freshed by the workers.
+   even better if we maintained a cache / offline flights data (perhaps outdated) that would then be re-freshen by the workers.
