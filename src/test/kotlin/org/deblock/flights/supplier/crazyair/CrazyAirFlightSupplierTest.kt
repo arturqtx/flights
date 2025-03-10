@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.deblock.flights.api.Flight
 import org.deblock.flights.api.FlightSearchService
+import org.deblock.flights.supplier.crazyair.CrazyAirApiClient.CrazyAirFlight
 import org.deblock.flights.types.Airline
 import org.deblock.flights.types.Airport.*
 import org.deblock.flights.types.Money.Companion.money
@@ -37,7 +38,7 @@ class CrazyAirFlightSupplierTest {
             )
         ).willReturn(
             listOf(
-                CrazyAirFlightResponse(
+                CrazyAirFlight(
                     airline = "CrazyAir",
                     price = BigDecimal("199.99"),
                     departureAirportCode = LHR,
@@ -45,7 +46,7 @@ class CrazyAirFlightSupplierTest {
                     departureDate = LocalDateTime.parse("2025-05-01T10:00:00"),
                     arrivalDate = LocalDateTime.parse("2025-05-10T12:30:00")
                 ),
-                CrazyAirFlightResponse(
+                CrazyAirFlight(
                     airline = "SkyFly",
                     price = BigDecimal("299.99"),
                     departureAirportCode = AMS,
@@ -53,7 +54,7 @@ class CrazyAirFlightSupplierTest {
                     departureDate = LocalDateTime.parse("2025-06-15T15:30:00"),
                     arrivalDate = LocalDateTime.parse("2025-06-20T18:00:00")
                 ),
-                CrazyAirFlightResponse(
+                CrazyAirFlight(
                     airline = "SuperJet",
                     price = BigDecimal("399.99"),
                     departureAirportCode = ORD,

@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.deblock.flights.api.Flight
 import org.deblock.flights.api.FlightSearchService
+import org.deblock.flights.supplier.toughjet.ToughJetApiClient.ToughJetFlight
 import org.deblock.flights.types.Airline
 import org.deblock.flights.types.Airport.*
 import org.deblock.flights.types.Money.Companion.money
@@ -35,7 +36,7 @@ class ToughJetFlightSupplierTest {
             )
         ).willReturn(
             listOf(
-                ToughJetFlightResponse(
+                ToughJetFlight(
                     carrier = "CrazyAir",
                     basePrice = BigDecimal("199.99"),
                     tax = BigDecimal("50.00"),
@@ -45,7 +46,7 @@ class ToughJetFlightSupplierTest {
                     outboundDateTime = Instant.parse("2025-05-01T09:00:00Z"),
                     inboundDateTime = Instant.parse("2025-05-10T04:30:00Z")
                 ),
-                ToughJetFlightResponse(
+                ToughJetFlight(
                     carrier = "SkyFly",
                     basePrice = BigDecimal("299.99"),
                     tax = BigDecimal("10.99"),
@@ -55,7 +56,7 @@ class ToughJetFlightSupplierTest {
                     outboundDateTime = Instant.parse("2025-05-01T10:00:00Z"),
                     inboundDateTime = Instant.parse("2025-05-10T12:30:00Z")
                 ),
-                ToughJetFlightResponse(
+                ToughJetFlight(
                     carrier = "SuperJet",
                     basePrice = BigDecimal("399.99"),
                     tax = BigDecimal("0"),

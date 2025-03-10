@@ -14,7 +14,7 @@ class FlightSearchSpec : FunctionalSpec() {
     fun `searches and aggregates flights from the supplier APIs`() {
         // given
         // @formatter:off
-        // Crazy Air API
+        // Stub Crazy Air API
         stubFor(get(urlPathEqualTo("/api/flights/search"))
             .withQueryParam("origin", equalTo("AMS"))
             .withQueryParam("destination", equalTo("DXB"))

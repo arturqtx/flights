@@ -3,7 +3,9 @@ package org.deblock.flights.supplier.crazyair
 import org.deblock.flights.types.Airport
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.math.BigDecimal
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 interface CrazyAirApiClient {
 
@@ -14,5 +16,14 @@ interface CrazyAirApiClient {
         @Query("departureDate") departureDate: LocalDate,
         @Query("returnDate") returnDate: LocalDate,
         @Query("passengerCount") passengerCount: Int
-    ): Collection<CrazyAirFlightResponse>
+    ): Collection<CrazyAirFlight>
+
+    class CrazyAirFlight(
+        val airline: String,
+        val price: BigDecimal,
+        val departureAirportCode: Airport,
+        val destinationAirportCode: Airport,
+        val departureDate: LocalDateTime,
+        val arrivalDate: LocalDateTime
+    )
 }

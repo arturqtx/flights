@@ -3,6 +3,8 @@ package org.deblock.flights.supplier.toughjet
 import org.deblock.flights.types.Airport
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.math.BigDecimal
+import java.time.Instant
 import java.time.LocalDate
 
 interface ToughJetApiClient {
@@ -14,5 +16,16 @@ interface ToughJetApiClient {
         @Query("outboundDate") outboundDate: LocalDate,
         @Query("inboundDate") inboundDate: LocalDate,
         @Query("numberOfAdults") numberOfAdults: Int
-    ): Collection<ToughJetFlightResponse>
+    ): Collection<ToughJetFlight>
+
+    class ToughJetFlight(
+        val carrier: String,
+        val basePrice: BigDecimal,
+        val tax: BigDecimal,
+        val discount: BigDecimal,
+        val departureAirportName: Airport,
+        val arrivalAirportName: Airport,
+        val outboundDateTime: Instant,
+        val inboundDateTime: Instant
+    )
 }
